@@ -5,33 +5,15 @@
 
 using namespace std;
 
-struct node {
-    string name;
-
-    double rate;
-
-    shared_ptr<edge_lst> edges;
-};
-
-struct edge {
-    shared_ptr<node> from;
-
-    shared_ptr<node> to;
-
-    double weight;
-};
-
-typedef vector<shared_ptr<edge>> edge_lst;
-
-
+typedef vector<vector<double>> matrix;
 
 class Currency_Graph {
 private:
     shared_ptr<map<string, double>> curRates;
-    
-    shared_ptr<double> Rate_Matrix();
 
-    shared_ptr<double> Floyd_Warshell(shared_ptr<double> rateMtx);
+    shared_ptr<matrix> Init_Dist();
+
+    shared_ptr<double> Floyd_Warshell(shared_ptr<double> dist);
 
 public:
     Currency_Graph();
