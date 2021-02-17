@@ -20,9 +20,11 @@ public:
 
     ~Currency_Graph();
 
-    bool Add_Currency(string name, double weight);
+    bool Add_Cur(string name, double weight);
 
-    bool Remove_Currency(string name);
+    bool Remove_Cur(string name);
+
+    bool Import_Cur_File(string filePath);
 
     bool Arbitrage_Exists();
 
