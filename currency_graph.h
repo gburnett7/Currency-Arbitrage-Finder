@@ -2,16 +2,20 @@
 #include <memory>
 #include <vector>
 #include <map>
+#include "matrix.h"
 
 using namespace std;
-
-typedef vector<vector<double>> matrix;
 
 class Currency_Graph {
 private:
     shared_ptr<map<string, double>> curRates;
 
-    shared_ptr<matrix> Init_Dist();
+    shared_ptr<Matrix> distance;
+
+    // True if distance reflects current state of curRates
+    bool distUpToDate;
+
+    shared_ptr<Matrix> Init_Dist();
 
     shared_ptr<double> Floyd_Warshell(shared_ptr<double> dist);
 
@@ -24,7 +28,9 @@ public:
 
     bool Remove_Cur(string name);
 
-    bool Import_Cur_File(string filePath);
+    // bool Print_Rates();
+
+    // bool Import_Cur_File(string filePath);
 
     bool Arbitrage_Exists();
 
